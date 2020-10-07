@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/style.css" />
+		<script type="text/javascript" src="app.js"></script>
+        <link rel=”stylesheet” type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <title>Full Forecast</title>
+
+    <style>
+        .body-all{
+	        background-color: black;
+	        height: 850px;
+	        opacity: 0.2;
+	        filter: blur(12px);
+	        -webkit-filter(21px);
+    }
+        .anim p {
+          white-space: nowrap;
+          position: absolute;
+          overflow: hidden;
+          font-family: 'Source Code Pro', monospace;
+          font-size: 60px;
+          font-weight: bold;
+          left: 9%;
+          top: -3%;
+          #color: rgba(255,255,255,.70);
+          color: #F3F0EE;
+        }
+
+        /* Animation */
+        p {
+          animation: animated-text 2s steps(30,end) 1s 1 normal both;
+        }
+
+        /* text animation */
+
+        @keyframes animated-text{
+          from{width: 0;}
+          to{width: 472px;}
+        }
+        #customers {
+          font-family: 'Source Code Pro', "Trebuchet MS", Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #customers td, #customers th {
+          border: 1px solid black;
+          padding: 8px;
+
+        }
+
+        #customers tr:nth-child(even){background-color: #A4A4A4; color: white;}
+        #customers tr:nth-child(odd){background-color: #717171; color: white;}
+
+        #customers tr:hover {background-color: #1027E6;}
+
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: black;
+          color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+<!--
+<h1 style="position:absolute; font-size: 45px; top: 120px; left: 140px; font-family: 'Source Code Pro', monospace; font-weight:bold; color: white;"> {{ weather['City'][0] }}, {{ weather['Country'][0] }} </h1>
+-->
+
+<div class="body-all"></div>
+<div class="anim">
+<p> GoSurf! </p>
+</div>
+<hr style="color: #F3F0EE; position:absolute; width: 1350px; top: 14%; left:80px;">
+
+<form action='/back' method='post'>
+<button  class="button" type="submit" name="go_back" id="show-forcast"   style="position:absolute; left:1120px; top: 50px; font-size: 20px; font-family: 'Source Code Pro', monospace; height: 51px; width: 200px;" href="/home.html">Go Back</button >
+</form>
+
+<table id="customers" style="position: absolute; top:200px; left: 60px; width: 1400px; height: 100px; font-family: 'Source Code Pro', monospace; font-size: 15px; opacity: 0.9;">
+
+  <tr>
+    <th style="text-align: center; border-radius: 20px 0px 0px 0px;">Date</th>
+    <th style="text-align: center;">Time</th>
+    <th style="text-align: center;">Wave Height</th>
+	<th style="text-align: center;">Wind Speed</th>
+    <th style="text-align: center;">Air Temp</th>
+      <th style="text-align: center;">Water Temp</th>
+      <th style="text-align: center;">Humidity</th>
+      <th style="text-align: center;">Visibility</th>
+      <th style="text-align: center;">Wave Direction</th>
+      <th style="text-align: center;">Wave Period</th>
+      <th style="text-align: center;">Sea Level (Tide)</th>
+    <th style="text-align: center;">Swell Direction</th>
+      <th style="text-align: center;">Swell Height</th>
+	<th style="text-align: center; border-radius: 0px 20px 0px 0px;">Swell Period</th>
+  </tr>
+
+    <!--
+    <tr>
+    <td style="color: #ffffff; background-color: #1A47D5;">9/12/19</td>
+    <td style="color: #ffffff; background-color: #1A47D5;">10:00</td>
+    <td style="color: #ffffff; background-color: #1A47D5;">1.3 m</td>
+	<td style="color: #ffffff; background-color: #1A47D5;">13 km/h</td>
+	<td style="color: #ffffff; background-color: #1A47D5;">21°</td>
+    <td style="color: #ffffff; background-color: #1A47D5;">23°</td>
+      <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][0] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][0] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][0] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][0] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][0] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][0] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][0] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][0] }}</td>
+  </tr>
+  -->
+<tr>
+    <td style="	color: #ffffff;">{{ weather_table['Date'][0]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][0]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][0] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][0] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][0] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][0] }}</td>
+    <td style="	color: #ffffff;">{{  weather['Humidity'][0] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Visibility'][0] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][0] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][0] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][0] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][0] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][0] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][0] }}</td>
+
+  </tr>
+<tr>
+    <td style="	color: #ffffff;">{{ weather_table['Date'][1]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][1]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][1] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][1] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][1] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][1] }}</td>
+    <td style="	color: #ffffff;">{{  weather['Humidity'][1] }}</td>
+       <td style="	color: #ffffff;">{{  weather_table['Visibility'][1] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][1] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][1] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][1] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][1] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][1] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][1] }}</td>
+
+  </tr>
+<tr>
+    <td style="	color: #ffffff;">{{ weather_table['Date'][2]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][2]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][2] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][2] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][2] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][2] }}</td>
+    <td style="	color: #ffffff;">{{  weather['Humidity'][2] }}</td>
+         <td style="	color: #ffffff;">{{  weather_table['Visibility'][2] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][2] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][2] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][2] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][2] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][2] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][2] }}</td>
+
+  </tr>
+    <tr>
+    <td style="	color: #ffffff;">{{ weather_table['Date'][3]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][3]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][3] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][3] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][3] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][3] }}</td>
+    <td style="	color: #ffffff;">{{  weather['Humidity'][3] }}</td>
+          <td style="	color: #ffffff;">{{  weather_table['Visibility'][3] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][3] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][3] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][3] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][3] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][3] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][3] }}</td>
+
+  </tr>
+   <tr>
+    <td style="	color: #ffffff;">{{ weather_table['Date'][4]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][4]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][4] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][4] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][4] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][4] }}</td>
+    <td style="	color: #ffffff;">{{  weather['Humidity'][4] }}</td>
+        <td style="	color: #ffffff;">{{  weather_table['Visibility'][4] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][4] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][4] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][4] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][4] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][4] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][4] }}</td>
+
+  </tr>
+     <tr>
+    <td style="	color: #ffffff;">{{ weather_table['Date'][5]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][5]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][5] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][5] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][5] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][5] }}</td>
+    <td style="	color: #ffffff;">{{  weather['Humidity'][5] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Visibility'][5] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][5] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][5] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][5] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][5] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][5] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][5] }}</td>
+
+  </tr>
+     <tr>
+    <td style="	color: #ffffff;">{{ weather_table['Date'][6]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][6]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][6] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][6] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][6] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][6] }}</td>
+    <td style="	color: #ffffff;">{{  weather['Humidity'][6] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Visibility'][6] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][6] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][6] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][6] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][6] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][6] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][6] }}</td>
+
+  </tr>
+    <tr>
+    <td style="	color: #ffffff;">{{ weather_table['Date'][7]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][7]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][7] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][7] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][7] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][7] }}</td>
+            <td style="	color: #ffffff;">{{  weather['Humidity'][7] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Visibility'][7] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][7] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][7] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][7] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][7] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][7] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][7] }}</td>
+
+  </tr><tr>
+    <td style="	color: #ffffff;">{{  weather_table['Date'][8]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][8]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][8] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][8] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][8] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][8] }}</td>
+    <td style="	color: #ffffff;">{{  weather['Humidity'][8] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Visibility'][8] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][8] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][8] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][8] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][8] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][8] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][8] }}</td>
+
+  </tr><tr>
+    <td style="	color: #ffffff;">{{ weather_table['Date'][9]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][9]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][9] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][9] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][9] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][9] }}</td>
+      <td style="	color: #ffffff;">{{  weather['Humidity'][9] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Visibility'][9] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][9] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][9] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][9] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][9] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][9] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][9] }}</td>
+  </tr>
+
+  <tr>
+    <td style="	color: #ffffff;">{{  weather_table['Date'][10]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][10]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][10] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][10] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][10] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][10] }}</td>
+    <td style="	color: #ffffff;">{{  weather['Humidity'][10] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Visibility'][10] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][10] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][10] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][10] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][10] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][10] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][10] }}</td>
+    </tr>
+      <tr>
+    <td style="	color: #ffffff;">{{  weather_table['Date'][11]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][11]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][11] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][11] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][11] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][11] }}</td>
+    <td style="	color: #ffffff;">{{  weather['Humidity'][11] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Visibility'][11] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][11] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][11] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][11] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][11] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][11] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Period'][11] }}</td>
+    </tr>
+     <tr>
+    <td style="	color: #ffffff; border-radius: 0px 0px 0px 20px;">{{ weather_table['Date'][12]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Time'][12]}}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Height'][12] }} m</td>
+	<td style="	color: #ffffff;">{{  weather_table['Wind Speed'][12] }}</td>
+	<td style="	color: #ffffff;">{{  weather_table['Air Temperature'][12] }}</td>
+          <td style="	color: #ffffff;">{{  weather_table['Water Temperature'][12] }}</td>
+ <td style="	color: #ffffff;">{{  weather['Humidity'][12] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Visibility'][12] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Direction'][12] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Wave Period'][12] }}</td>
+    <td style="	color: #ffffff;">{{  weather_table['Sea Level'][12] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Direction'][12] }}</td>
+      <td style="	color: #ffffff;">{{  weather_table['Swell Height'][12] }}</td>
+         <td style="	color: #ffffff; border-radius: 0px 0px 20px 0px;">{{  weather_table['Swell Period'][12] }}</td>
+  </tr>
+
+</table>
+
+<h1 style="position: absolute; top: 790px; left: 600px; font-family: 'Source Code Pro', monospace; color:white; font-size: 18px; ">Copyright © 2020 GoSurf!</h1>
+
+</body>
+</html>

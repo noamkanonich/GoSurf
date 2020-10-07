@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoSurf!</title>
+		<link rel="stylesheet" href="static/css/welcome.css" />
+		<script type="text/javascript" src="app.js"></script>
+
+        <link rel=”stylesheet” type="text/css" href="{{ url_for('static',filename='welcome.css') }}">
+
+	</head>
+
+
+<body>
+
+<div class="img-background"></div>
+<div class="anim">
+<p style="position:absolute; font-size: 70px; top: 150px; left: 170px;"> Welcome To GoSurf! </p>
+</div>
+
+<div class="div-fadein">
+<div class="box-1">
+<div class="box-1-headline">
+<h1 id="input-text" style="position:absolute;font-family: 'Source Code Pro', monospace;  font-size: 35px; top: 25px; left: 25px;">Enter city name: </h1>
+
+</div>
+</div>
+
+<form action='/city' method='post'>
+<button class="button" type="submit" value="submit" id="gosurf-button" onClick="newCity()" style="position:absolute; font-family: 'Source Code Pro', monospace; left:640px; top: 465px; font-size: 25px;height: 55px;" href="#">GoSurf!</button>
+<input type="text" id="input-city" name="new_city" style="position:absolute; left:215px; top: 465px; width: 400px; height: 50px; border-color: black; font-size: 25px; color: black; border-radius: 8px;"></input>
+
+</form>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,428 @@
+body{
+	background-image: url('big-wave.jpg');
+}
+
+.img-background {
+	background-color: black;
+	position: absolute;
+	color: white;
+	top: -5px;
+	border-radius: 20px;
+    border: 1px solid #EFEAE6;
+	opacity: 0.2;
+	filter: blur(12px);
+	-webkit-filter(21px);
+
+}
+
+.body-all{
+	background-color: #252529;
+	height: 700px;
+	opacity: 0;
+}
+
+.anim p {
+  white-space: nowrap;
+  position: absolute;
+  overflow: hidden;    
+  font-family: 'Source Code Pro', monospace;  
+  font-size: 60px;
+  font-weight: bold;
+  left: 9%;
+  top: -3%;
+  #color: rgba(255,255,255,.70);
+  color: #F3F0EE;
+}
+
+/* Animation */
+p {
+  animation: animated-text 2s steps(30,end) 1s 1 normal both;
+}
+
+/* text animation */
+
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 472px;}
+}
+
+
+.box-1 {
+	background-color: #54504C;
+	position: absolute;
+	color: white;
+	padding: 15px;
+	width: 700px;
+	height: 180px;
+	top: 160px;
+	left: 100px;
+	border-radius: 20px;
+		opacity: 0.5;
+}
+
+.box-1-headline {
+	background-color: #45423E;
+	position: absolute;
+	color: white;
+	padding: 15px;
+	width: 700px;
+	height: 45px;
+	top: 160px;
+	left: 100px;
+			opacity: 0.9;
+	border-radius: 20px 20px 0px 0px;
+
+}
+
+.box-1-headline h1 {
+	position:absolute;
+	font-family: 'Source Code Pro', monospace; 
+	font-weight:bold;
+	color: white;
+	#color: #252529;
+	font-size: 35px;
+	top: -5%;
+	left: 90px;
+}
+
+
+.box-1-headline:hover {
+	border: 1px solid ##124fde;
+    background: #A29D98;
+    background: -webkit-gradient(linear, left top, left bottom, from(#A29D98), to(#A29D98));
+    background: -moz-linear-gradient(top, #A29D98, #A29D98);
+    background: linear-gradient(to bottom, #A29D98, #A29D98);
+    color: red;
+    text-decoration: none;
+
+
+
+}
+
+
+.box-2 {
+	background-color: #F3F0EE;
+	position: absolute;
+	color: white;
+	padding: 15px;
+	width: 300px;
+	height: 130px;
+	top: 400px;
+	left: 100px;
+	border-radius: 20px;
+			opacity: 0.5;
+  
+}
+
+.box-2-headline {
+	background-color: #EFEAE6;
+	position: absolute;
+	color: #252529;
+	padding: 15px;
+	width: 300px;
+	height: 30px;
+	top: 400px;
+	left: 100px;
+	border-radius: 20px 20px 0px 0px;
+
+}
+
+.box-2-headline h1 {
+	position:absolute;
+	 font-family: 'Source Code Pro', monospace; 
+	font-size: 35px;
+	top: -20px;
+	left: 45px;
+}
+
+
+
+.box-3 {
+	background-color: #F3F0EE;
+	position: absolute;
+	color: white;
+	padding: 15px;
+	width: 300px;
+	height: 130px;
+	top: 400px;
+	left: 500px;
+	border-radius: 20px;
+  
+}
+
+.box-3-headline {
+	background-color: #EFEAE6;
+	position: absolute;
+	color: #252529;
+	padding: 15px;
+	width: 300px;
+	height: 30px;
+	top: 400px;
+	left: 500px;
+	border-radius: 20px 20px 0px 0px;
+
+}
+
+.box-3-headline h1 {
+	position:absolute;
+	 font-family: 'Source Code Pro', monospace; 
+	font-size: 35px;
+	top: -20px;
+	left: 50px;
+}
+
+
+.box-4 {
+	background-color: #F3F0EE;
+	position: absolute;
+	color: white;
+	padding: 15px;
+	width: 300px;
+	height: 130px;
+	top: 590px;
+	left: 500px;
+	border-radius: 20px;
+  
+}
+
+.box-4-headline {
+	background-color: #EFEAE6;
+	position: absolute;
+	color: #252529;
+	padding: 15px;
+	width: 300px;
+	height: 30px;
+	top: 590px;
+	left: 500px;
+	border-radius: 20px 20px 0px 0px;
+
+}
+
+.box-4-headline h1 {
+	position:absolute;
+	 font-family: 'Source Code Pro', monospace; 
+	font-size: 35px;
+	top: -20%;
+	left: 45px;
+}
+
+.box-5 {
+	background-color: #F3F0EE;
+	position: absolute;
+	color: white;
+	padding: 15px;
+	width: 300px;
+	height: 130px;
+	top: 590px;
+	left: 100px;
+	border-radius: 20px;
+  
+}
+
+.box-5-headline {
+	background-color: #EFEAE6;
+	position: absolute;
+	font-weight: bold;
+	color: #252529;
+	padding: 15px;
+	width: 300px;
+	height: 30px;
+	top: 590px;
+	left: 100px;
+	border-radius: 20px 20px 0px 0px;
+
+}
+
+.box-5-headline h1 {
+	position:absolute;
+	 font-family: 'Source Code Pro', monospace; 
+	font-size: 35px;
+	top: -20%;
+	left: 45px;
+}
+
+
+.box-6 {
+	background-color: #F3F0EE;
+	position: absolute;
+	color: white;
+	padding: 15px;
+	width: 300px;
+	height: 180px;
+	top: 160px;
+	left: 900px;
+	border-radius: 20px;
+  
+}
+
+.box-6-headline {
+	background-color: #EFEAE6;
+	position: absolute;
+	color: #252529;
+	padding: 15px;
+	width: 300px;
+	height: 40px;
+	top: 160px;
+	left: 900px;
+	border-radius: 20px 20px 0px 0px;
+
+}
+
+.box-6-headline h1 {
+	position:absolute;
+	 font-family: 'Source Code Pro', monospace; 
+	font-size: 35px;
+	top: -20%;
+	left:85px;
+}
+
+
+.box-7 {
+	background-color: #F3F0EE;
+	position: absolute;
+	color: white;
+	padding: 15px;
+	width: 100px;
+	height: 180px;
+	top: 160px;
+	left: 1300px;
+	border-radius: 20px;
+  
+}
+
+.box-7-headline {
+	background-color: #EFEAE6;
+	position: absolute;
+	color: #252529;
+	padding: 15px;
+	width: 200px;
+	height: 40px;
+	top: 160px;
+	left: 1300px;
+	border-radius: 20px 20px 0px 0px;
+
+}
+
+.box-7-headline h1 {
+	position:absolute;
+	 font-family: 'Source Code Pro', monospace; 
+	font-size: 35px;
+	top: -20%;
+	left:40px;
+}
+
+.box-8 {
+	background-color: #F3F0EE;
+	position: absolute;
+	color: white;
+	padding: 15px;
+	width: 100px;
+	height: 180px;
+	top: 160px;
+	left: 1300px;
+	border-radius: 20px;
+
+}
+
+table {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  width: 150px;
+  height: 250px;
+  width:50%;
+  	font-size: 17px;
+	opacity: 0.9;
+	font-weight: bold;
+	font-family: 'Source Code Pro', monospace;
+
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: center;
+}
+
+table#t01 tr:nth-child(even) {
+background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.1); /* Black w/opacity/see-through */
+    height: 35px;
+
+  }
+  
+table#t01 tr:nth-child(odd) {
+background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.2); /* Black w/opacity/see-through */
+      height: 35px;
+
+  }
+  
+  
+table#t01 th {
+  background-color: black;
+  color: white;
+  height: 35px;
+}
+
+
+
+
+.button {
+    display: inline-block;
+    #text-align: center;
+	font-family: 'Source Code Pro', monospace;
+	width: 150px;
+	height: 50px;
+    padding: 12px 24px;
+	border: 1px solid #0f43bd;
+    border-radius: 8px;
+    background: #1d7eff;
+  #  background: -webkit-gradient(linear, left top, left bottom, from(#1d7eff), to(#0f43bd));
+  #  background: -moz-linear-gradient(top, #1d7eff, #0f43bd);
+  #  background: linear-gradient(to bottom, #1d7eff, #0f43bd);
+    -webkit-box-shadow: #2397ff 0px 0px 5px 0px;
+    -moz-box-shadow: #2397ff 0px 0px 5px 0px;
+    box-shadow: #2397ff 0px 0px 5px 0px;
+    text-shadow: #09286f 1px 1px 1px;
+    font: normal normal bold 24px comic sans ms;
+    color: #ffffff;
+    text-decoration: none;
+	position = absolute;
+}
+.button:hover,
+.button:focus {
+	border: 1px solid ##124fde;
+    background: #2397ff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#2397ff), to(#1250e3));
+    background: -moz-linear-gradient(top, #2397ff, #1250e3);
+    background: linear-gradient(to bottom, #2397ff, #1250e3);
+    color: #ffffff;
+    text-decoration: none;
+}
+.button:active {
+    background: #0f43bd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0f43bd), to(#0f43bd));
+    background: -moz-linear-gradient(top, #0f43bd, #0f43bd);
+    background: linear-gradient(to bottom, #0f43bd, #0f43bd);
+}
+
+.div-slidein {
+	animation-duration: 3.25s;
+    animation-name: slidein;
+}
+
+
+@keyframes slidein {
+  from {
+    margin-right: 100%;
+    width: 100%;
+  }
+
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
+}

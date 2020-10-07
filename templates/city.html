@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <title>GoSurf!</title>
+</head>
+
+<body>
+<form action='/city' method='post'>
+
+<input type='text' name='new_city'>
+    <input type='submit' value='submit'>
+
+</form>
+
+<h1></h1>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoSurf!</title>
+		<link rel="stylesheet" href="static/css/style.css" />
+		<script type="text/javascript" src="app.js"></script>
+        <link rel=”stylesheet” type="text/css" href="{{ url_for('static',filename='style.css') }}">
+
+    <script>
+        function myFunctionHide() {
+		document.getElementById("other-city").style.display = 'none';
+		document.getElementById("show-forcast").style.display = 'none';
+		document.getElementById("input-city").style.display = 'block';
+		document.getElementById("input-text").style.display = 'block';
+		document.getElementById("gosurf-button").style.display = 'block';
+		var city = "Los Angeles";
+		  //document.getElementById("city").innerHTML = input-city.value;
+	}
+    </script>
+	</head>
+
+
+<body>
+
+<div class="body-all"></div>
+<div style="background-color: black;">
+</div>
+<div class="anim">
+<p> GoSurf! </p>
+</div>
+
+<hr style="color: #F3F0EE; position:absolute; width: 1350px; top: 14%; left:80px;">
+
+<div class="box-1">
+
+</div>
+<div class="box-1-headline">
+<h1> LOCATION </h1>
+<img width="50" height="50" style="position:absolute; padding-top: 1%; top:10%;" src="img/location.png">
+<h1 style="position:absolute; font-size: 45px; top: 70px; left: 40px;"> </h1>
+
+</div>
+
+
+<div class="box-2">
+</div>
+<div class="box-2-headline">
+<h1> WAVE HEIGHT </h1>
+<h1 style="position:absolute; font-size: 50px; top: 45px; left: 40px;">   m  </h1>
+</div>
+
+<div class="box-3">
+
+</div>
+<div class="box-3-headline">
+<h1> WATER TEMP </h1>
+<h1 style="position:absolute; font-size: 50px; top: 45px; left: 110px;">  </h1>
+
+</div>
+
+
+<div class="box-4">
+
+</div>
+<div class="box-4-headline">
+<h1> AIR TEMP </h1>
+</div>
+
+<div class="box-5">
+
+</div>
+<div class="box-5-headline">
+<h1> WIND SPEED </h1>
+</div>
+
+<div class="box-6">
+
+</div>
+<div class="box-6-headline">
+<h1> BEST TIME </h1>
+<img width="50" height="50" style="position:absolute; padding-top: 1%; top:10%; left:20px;" src="img/time.png">
+<h1 style="position:absolute; font-size: 45px; top: 70px; left: 25px;">10:00-12:00 </h1>
+
+
+</div>
+
+<div class="box-7">
+
+</div>
+<div class="box-7-headline">
+<h1> LVL </h1>
+<h1 style="position:absolute; font-size: 40px; top: 70px; left: 25px;">5x</h1>
+
+</div>
+
+<a class="button" id="other-city" onClick="myFunctionHide()" style="position:absolute; left:930px; top: 50px; font-size: 20px;	 font-family: 'Source Code Pro', monospace;"  href="#">Other City</a>
+<p id="input-text" style="position:absolute; left:600px; top:40px; font-size:24px; color: white; font-family: 'Source Code Pro', monospace; display: none;">Enter City Name: </p>
+<input id="input-city" value="" style="position:absolute; left:840px; top: 60px; width: 280px; height: 30px; border-color: black; font-size: 15px; color: black; border-radius: 8px; display:none;"></input>
+<button class="button" type="button" id="gosurf-button" onClick="newCity()" style="position:absolute; left:1150px; top: 50px;  font-size: 20px ; display: none;" href="#">GoSurf! Again</button>
+<a class="button" id="show-forcast" style="position:absolute; left:1120px; top: 50px; font-size: 20px; font-family: 'Source Code Pro', monospace;" href="#">12-Hours Forcast</a>
+
+
+
+
+
+
+
+</div>
+</body>
+
+</html>
